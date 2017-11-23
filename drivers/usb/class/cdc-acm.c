@@ -1138,7 +1138,7 @@ static int acm_probe(struct usb_interface *intf,
 		}
 	}
 
-	while (buflen > 0) {
+	while (buflen >= 3) { /* minimum length making sense */
 		elength = buffer[0];
 		if ((buflen < elength) || (elength < 3)) {
 			dev_err(&intf->dev, "invalid descriptor buffer length\n");
